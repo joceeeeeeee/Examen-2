@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DataView = new System.Windows.Forms.DataGridView();
-            this.btnReporte = new System.Windows.Forms.Button();
             this.btnmenu = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btnbuscar = new System.Windows.Forms.Button();
@@ -123,16 +122,6 @@
             this.DataView.Size = new System.Drawing.Size(503, 150);
             this.DataView.TabIndex = 99;
             // 
-            // btnReporte
-            // 
-            this.btnReporte.BackgroundImage = global::GUARDERIA.Properties.Resources.images;
-            this.btnReporte.Location = new System.Drawing.Point(465, 81);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(64, 59);
-            this.btnReporte.TabIndex = 103;
-            this.btnReporte.UseVisualStyleBackColor = true;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
-            // 
             // btnmenu
             // 
             this.btnmenu.BackgroundImage = global::GUARDERIA.Properties.Resources.png_transparent_computer_icons_house_house_angle_logo_home_icon1;
@@ -199,7 +188,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(637, 508);
-            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.DataView);
             this.Controls.Add(this.btnmenu);
             this.Controls.Add(this.btneliminar);
@@ -237,7 +225,6 @@
         private System.Windows.Forms.Button btnmodificar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView DataView;
-        private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.Button button1;
     }
 }

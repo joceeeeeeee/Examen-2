@@ -161,10 +161,6 @@ namespace GUARDERIA
            
         }
 
-        private void btnReporte_Click(object sender, EventArgs e)
-        {
-            Form10 f = new Form10();
-            f.Show();
-        }
+
     }
 }
