@@ -13,6 +13,7 @@ namespace GUARDERIA
 {
     public partial class Form2 : Form
     {
+<<<<<<< HEAD
         public void InsertarEmpleado(string codigo, string nombre, string especialidad, string rfc, int edad, string curp, decimal salario, string puesto, string telefono, string direccion, string horario)
         {
             // Lógica de inserción en la base de datos
@@ -34,13 +35,67 @@ namespace GUARDERIA
             conexion.Open();
             altas.ExecuteNonQuery();
             conexion.Close();
+=======
+
+        public void InsertarEmpleado(string codigo, string nombre, string especialidad, string rfc, int edad, string curp, decimal salario, string puesto, string telefono, string direccion, string horario)
+        {
+            //bloque try
+            try
+            {
+                // Lógica de inserción en la base de datos
+                SqlCommand altas = new SqlCommand
+                    ("INSERT INTO EMPLEADO (ID_EMPLEADO, NOMBRE_EMP, ESPECIALIDAD_EMP, RFC_EMP, EDAD_EMP, CURP_EMP, SALARIO_EMP, PUESTO_EMP, TELEFONO_EMP, DIRECCION_EMP, HORARIO_EMP) " +
+                     "VALUES (@ID_EMPLEADO, @NOMBRE_EMP, @ESPECIALIDAD_EMP, @RFC_EMP, @EDAD_EMP, @CURP_EMP, @SALARIO_EMP, @PUESTO_EMP, @TELEFONO_EMP, @DIRECCION_EMP, @HORARIO_EMP)", conexion);
+
+                altas.Parameters.AddWithValue("@ID_EMPLEADO", codigo);
+                altas.Parameters.AddWithValue("@NOMBRE_EMP", nombre);
+                altas.Parameters.AddWithValue("@ESPECIALIDAD_EMP", especialidad);
+                altas.Parameters.AddWithValue("@RFC_EMP", rfc);
+                altas.Parameters.AddWithValue("@EDAD_EMP", edad);
+                altas.Parameters.AddWithValue("@CURP_EMP", curp);
+                altas.Parameters.AddWithValue("@SALARIO_EMP", salario);
+                altas.Parameters.AddWithValue("@PUESTO_EMP", puesto);
+                altas.Parameters.AddWithValue("@TELEFONO_EMP", telefono);
+                altas.Parameters.AddWithValue("@DIRECCION_EMP", direccion);
+                altas.Parameters.AddWithValue("@HORARIO_EMP", horario);
+
+                conexion.Open();
+                altas.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error al insertar el empleado en la base de datos:\n" + ex.Message, "Error SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error inesperado:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+>>>>>>> tercera-rama
         }
         public Form2()
         {
             InitializeComponent();
         }
         SqlConnection conexion = new SqlConnection(@"server=DESKTOP-DVVAAHH\SQLEXPRESS; Initial Catalog=GUARDERIA; integrated security=true");
+<<<<<<< HEAD
 
+=======
+        public class Empleado
+        {
+            public string Nombre { get; set; }
+            public int Edad { get; set; }
+            public string Puesto { get; set; }
+        }
+>>>>>>> tercera-rama
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             SqlCommand altas = new SqlCommand
@@ -77,7 +132,21 @@ namespace GUARDERIA
             txtdireccion.Clear();
             txthorario.Clear();
             txtcodigo.Focus();
+<<<<<<< HEAD
             
+=======
+
+            var empleado = new Empleado
+            {
+                Nombre = txtnombre.Text,
+                Edad = int.Parse(txtedad.Text),
+                Puesto = txtpuesto.Text
+            };
+
+            var repo = new EmpleadoRepository(); // conexión interna
+            repo.InsertarEmpleado(empleado);
+
+>>>>>>> tercera-rama
             Form2_Load(0, e);
         }
 
@@ -183,11 +252,18 @@ namespace GUARDERIA
 
             cmdIns.Dispose();
             cmdIns = null;
+<<<<<<< HEAD
            
+=======
+>>>>>>> tercera-rama
 
 
             conexion.Close();
             MessageBox.Show("Empleado eliminado");
+<<<<<<< HEAD
+=======
+
+>>>>>>> tercera-rama
             Form2_Load(0, e);
         }
 
