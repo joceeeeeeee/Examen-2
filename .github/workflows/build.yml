@@ -13,28 +13,24 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      # Paso 1: Configurar JDK 17
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: 17
           distribution: 'zulu'
 
-      # Paso 2: Checkout del repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Para análisis más preciso
 
-      # Paso 3: Instalar MSBuild
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1.1
 
-      # Paso 4: Crear directorio para caché de SonarQube
+      # Crear los directorios antes de caché
       - name: Create sonar cache directory
         run: New-Item -Path ~\sonar\cache -ItemType Directory -Force
 
-      # Paso 5: Cache de SonarQube Cloud packages
       - name: Cache SonarQube Cloud packages
         uses: actions/cache@v4
         with:
@@ -42,11 +38,10 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      # Paso 6: Crear directorio para el scanner de SonarQube
+      # Crear el directorio para el scanner si no existe
       - name: Create sonar scanner directory
         run: New-Item -Path .\.sonar\scanner -ItemType Directory -Force
 
-      # Paso 7: Cache de SonarQube Cloud scanner
       - name: Cache SonarQube Cloud scanner
         id: cache-sonar-scanner
         uses: actions/cache@v4
@@ -55,43 +50,17 @@ jobs:
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
 
-      # Paso 8: Instalar SonarQube Cloud scanner si no está en caché
       - name: Install SonarQube Cloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: powershell
         run: |
-          echo "Installing SonarQube scanner..."
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
-          # Verificar la instalación después de la actualización
-          if (Test-Path .\.sonar\scanner\dotnet-sonarscanner) {
-            Write-Host "SonarQube scanner installed successfully"
-          } else {
-            Write-Host "SonarQube scanner installation failed"
-            exit 1
-          }
 
-      # Paso 9: Realizar el análisis y construcción con SonarQube
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          # Iniciar análisis en SonarQube
-          .\.sonar\scanner\dotnet-sonarscanner begin -k:"Pruebas-Sonarqube_Sonar" -o:"pruebas-sonarqube" -d:sonar.token="${{ secrets.SONAR_TOKEN }}" -d:sonar.host.url="https://sonarcloud.io"
-          
-          # Ejecutar la compilación con MSBuild
-          msbuild GUARDERIA/GUARDERIA.sln /t:Rebuild /p:Configuration=Release
-          
-          # Finalizar análisis en SonarQube
+          .\.sonar\scanner\dotnet-sonarscanner begin -k:"Examen-2" -o:"Jocelyn-Leyva-Garay" -d:sonar.token="${{ secrets.SONAR_TOKEN }}" -d:sonar.host.url="https://sonarcloud.io"
+          msbuild Examen-2/GUARDERIA/GUARDERIA.sln /t:Rebuild /p:Configuration=Release
           .\.sonar\scanner\dotnet-sonarscanner end -d:sonar.token="${{ secrets.SONAR_TOKEN }}"
-
-      # Paso 10: Validación de la instalación del scanner (opcional para asegurar que está instalado)
-      - name: Validate SonarQube Scanner Installation
-        run: |
-          echo "Verifying SonarQube scanner installation..."
-          if (Test-Path .\.sonar\scanner\dotnet-sonarscanner) {
-            Write-Host "SonarQube scanner found and installed"
-          } else {
-            Write-Host "SonarQube scanner not found"
-            exit 1
-          }
