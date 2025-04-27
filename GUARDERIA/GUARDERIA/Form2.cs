@@ -13,11 +13,33 @@ namespace GUARDERIA
 {
     public partial class Form2 : Form
     {
+        public void InsertarEmpleado(string codigo, string nombre, string especialidad, string rfc, int edad, string curp, decimal salario, string puesto, string telefono, string direccion, string horario)
+        {
+            // Lógica de inserción en la base de datos
+            SqlCommand altas = new SqlCommand
+                ("insert into EMPLEADO (ID_EMPLEADO, NOMBRE_EMP, ESPECIALIDAD_EMP, RFC_EMP, EDAD_EMP, CURP_EMP, SALARIO_EMP, PUESTO_EMP, TELEFONO_EMP, DIRECCION_EMP, HORARIO_EMP) values(@ID_EMPLEADO, @NOMBRE_EMP, @ESPECIALIDAD_EMP, @RFC_EMP, @EDAD_EMP, @CURP_EMP, @SALARIO_EMP, @PUESTO_EMP, @TELEFONO_EMP, @DIRECCION_EMP, @HORARIO_EMP)", conexion);
+
+            altas.Parameters.AddWithValue("ID_EMPLEADO", codigo);
+            altas.Parameters.AddWithValue("NOMBRE_EMP", nombre);
+            altas.Parameters.AddWithValue("ESPECIALIDAD_EMP", especialidad);
+            altas.Parameters.AddWithValue("RFC_EMP", rfc);
+            altas.Parameters.AddWithValue("EDAD_EMP", edad);
+            altas.Parameters.AddWithValue("CURP_EMP", curp);
+            altas.Parameters.AddWithValue("SALARIO_EMP", salario);
+            altas.Parameters.AddWithValue("PUESTO_EMP", puesto);
+            altas.Parameters.AddWithValue("TELEFONO_EMP", telefono);
+            altas.Parameters.AddWithValue("DIRECCION_EMP", direccion);
+            altas.Parameters.AddWithValue("HORARIO_EMP", horario);
+
+            conexion.Open();
+            altas.ExecuteNonQuery();
+            conexion.Close();
+        }
         public Form2()
         {
             InitializeComponent();
         }
-        SqlConnection conexion = new SqlConnection(@"server=DESKTOP-8QNTNAJ\MSSQLSERVER01; Initial Catalog=GUARDERIA; integrated security=true");
+        SqlConnection conexion = new SqlConnection(@"server=DESKTOP-DVVAAHH\SQLEXPRESS; Initial Catalog=GUARDERIA; integrated security=true");
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -144,6 +166,8 @@ namespace GUARDERIA
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
+            //prueba
+
             conexion.Open();
             string baja = "DELETE FROM EMPLEADO WHERE ID_EMPLEADO=@ID_EMPLEADO";
 
@@ -172,5 +196,11 @@ namespace GUARDERIA
             Close();
         }
 
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

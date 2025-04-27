@@ -104,56 +104,56 @@ SELECT ID_EXPEDIENTE, ALERGIAS_EXP, MEDICAMENTO_EXP, TRATAMIENTO_EXP, CUIDADO_EX
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="EXPEDATA" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="EXPEDATA" msprop:Generator_DataSetName="EXPEDATA">
+  <xs:element name="EXPEDATA" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="EXPEDATA" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EXPEDATA">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EXPEDIENTE" msprop:Generator_RowEvHandlerName="EXPEDIENTERowChangeEventHandler" msprop:Generator_RowDeletedName="EXPEDIENTERowDeleted" msprop:Generator_RowDeletingName="EXPEDIENTERowDeleting" msprop:Generator_RowEvArgName="EXPEDIENTERowChangeEvent" msprop:Generator_TablePropName="EXPEDIENTE" msprop:Generator_RowChangedName="EXPEDIENTERowChanged" msprop:Generator_RowChangingName="EXPEDIENTERowChanging" msprop:Generator_TableClassName="EXPEDIENTEDataTable" msprop:Generator_RowClassName="EXPEDIENTERow" msprop:Generator_TableVarName="tableEXPEDIENTE" msprop:Generator_UserTableName="EXPEDIENTE">
+        <xs:element name="EXPEDIENTE" msprop:Generator_RowClassName="EXPEDIENTERow" msprop:Generator_RowEvHandlerName="EXPEDIENTERowChangeEventHandler" msprop:Generator_RowDeletedName="EXPEDIENTERowDeleted" msprop:Generator_RowDeletingName="EXPEDIENTERowDeleting" msprop:Generator_RowEvArgName="EXPEDIENTERowChangeEvent" msprop:Generator_TablePropName="EXPEDIENTE" msprop:Generator_RowChangedName="EXPEDIENTERowChanged" msprop:Generator_UserTableName="EXPEDIENTE" msprop:Generator_RowChangingName="EXPEDIENTERowChanging" msprop:Generator_TableClassName="EXPEDIENTEDataTable" msprop:Generator_TableVarName="tableEXPEDIENTE">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_EXPEDIENTE" msprop:Generator_ColumnPropNameInRow="ID_EXPEDIENTE" msprop:Generator_ColumnPropNameInTable="ID_EXPEDIENTEColumn" msprop:Generator_ColumnVarNameInTable="columnID_EXPEDIENTE" msprop:Generator_UserColumnName="ID_EXPEDIENTE" type="xs:int" />
-              <xs:element name="ALERGIAS_EXP" msprop:Generator_ColumnPropNameInRow="ALERGIAS_EXP" msprop:Generator_ColumnPropNameInTable="ALERGIAS_EXPColumn" msprop:Generator_ColumnVarNameInTable="columnALERGIAS_EXP" msprop:Generator_UserColumnName="ALERGIAS_EXP" minOccurs="0">
+              <xs:element name="ID_EXPEDIENTE" msprop:Generator_UserColumnName="ID_EXPEDIENTE" msprop:Generator_ColumnPropNameInTable="ID_EXPEDIENTEColumn" msprop:Generator_ColumnPropNameInRow="ID_EXPEDIENTE" msprop:Generator_ColumnVarNameInTable="columnID_EXPEDIENTE" type="xs:int" />
+              <xs:element name="ALERGIAS_EXP" msprop:Generator_UserColumnName="ALERGIAS_EXP" msprop:Generator_ColumnPropNameInTable="ALERGIAS_EXPColumn" msprop:Generator_ColumnPropNameInRow="ALERGIAS_EXP" msprop:Generator_ColumnVarNameInTable="columnALERGIAS_EXP" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="MEDICAMENTO_EXP" msprop:Generator_ColumnPropNameInRow="MEDICAMENTO_EXP" msprop:Generator_ColumnPropNameInTable="MEDICAMENTO_EXPColumn" msprop:Generator_ColumnVarNameInTable="columnMEDICAMENTO_EXP" msprop:Generator_UserColumnName="MEDICAMENTO_EXP" minOccurs="0">
+              <xs:element name="MEDICAMENTO_EXP" msprop:Generator_UserColumnName="MEDICAMENTO_EXP" msprop:Generator_ColumnPropNameInTable="MEDICAMENTO_EXPColumn" msprop:Generator_ColumnPropNameInRow="MEDICAMENTO_EXP" msprop:Generator_ColumnVarNameInTable="columnMEDICAMENTO_EXP" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TRATAMIENTO_EXP" msprop:Generator_ColumnPropNameInRow="TRATAMIENTO_EXP" msprop:Generator_ColumnPropNameInTable="TRATAMIENTO_EXPColumn" msprop:Generator_ColumnVarNameInTable="columnTRATAMIENTO_EXP" msprop:Generator_UserColumnName="TRATAMIENTO_EXP" minOccurs="0">
+              <xs:element name="TRATAMIENTO_EXP" msprop:Generator_UserColumnName="TRATAMIENTO_EXP" msprop:Generator_ColumnPropNameInTable="TRATAMIENTO_EXPColumn" msprop:Generator_ColumnPropNameInRow="TRATAMIENTO_EXP" msprop:Generator_ColumnVarNameInTable="columnTRATAMIENTO_EXP" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="CUIDADO_EXP" msprop:Generator_ColumnPropNameInRow="CUIDADO_EXP" msprop:Generator_ColumnPropNameInTable="CUIDADO_EXPColumn" msprop:Generator_ColumnVarNameInTable="columnCUIDADO_EXP" msprop:Generator_UserColumnName="CUIDADO_EXP" minOccurs="0">
+              <xs:element name="CUIDADO_EXP" msprop:Generator_UserColumnName="CUIDADO_EXP" msprop:Generator_ColumnPropNameInTable="CUIDADO_EXPColumn" msprop:Generator_ColumnPropNameInRow="CUIDADO_EXP" msprop:Generator_ColumnVarNameInTable="columnCUIDADO_EXP" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DIETA_EXP" msprop:Generator_ColumnPropNameInRow="DIETA_EXP" msprop:Generator_ColumnPropNameInTable="DIETA_EXPColumn" msprop:Generator_ColumnVarNameInTable="columnDIETA_EXP" msprop:Generator_UserColumnName="DIETA_EXP" minOccurs="0">
+              <xs:element name="DIETA_EXP" msprop:Generator_UserColumnName="DIETA_EXP" msprop:Generator_ColumnPropNameInTable="DIETA_EXPColumn" msprop:Generator_ColumnPropNameInRow="DIETA_EXP" msprop:Generator_ColumnVarNameInTable="columnDIETA_EXP" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TIPO_SANGRE_EXP" msprop:Generator_ColumnPropNameInRow="TIPO_SANGRE_EXP" msprop:Generator_ColumnPropNameInTable="TIPO_SANGRE_EXPColumn" msprop:Generator_ColumnVarNameInTable="columnTIPO_SANGRE_EXP" msprop:Generator_UserColumnName="TIPO_SANGRE_EXP" minOccurs="0">
+              <xs:element name="TIPO_SANGRE_EXP" msprop:Generator_UserColumnName="TIPO_SANGRE_EXP" msprop:Generator_ColumnPropNameInTable="TIPO_SANGRE_EXPColumn" msprop:Generator_ColumnPropNameInRow="TIPO_SANGRE_EXP" msprop:Generator_ColumnVarNameInTable="columnTIPO_SANGRE_EXP" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="EDAD_EXP" msprop:Generator_ColumnPropNameInRow="EDAD_EXP" msprop:Generator_ColumnPropNameInTable="EDAD_EXPColumn" msprop:Generator_ColumnVarNameInTable="columnEDAD_EXP" msprop:Generator_UserColumnName="EDAD_EXP" type="xs:int" minOccurs="0" />
+              <xs:element name="EDAD_EXP" msprop:Generator_UserColumnName="EDAD_EXP" msprop:Generator_ColumnPropNameInTable="EDAD_EXPColumn" msprop:Generator_ColumnPropNameInRow="EDAD_EXP" msprop:Generator_ColumnVarNameInTable="columnEDAD_EXP" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

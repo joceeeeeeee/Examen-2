@@ -69,21 +69,21 @@ SELECT ID_SALON, CAPACIDAD_SAL, DESCRIPCION_SAL FROM SALON WHERE (ID_SALON = @ID
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="Datsalon2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="Datsalon2" msprop:Generator_DataSetName="Datsalon2">
+  <xs:element name="Datsalon2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Datsalon2" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Datsalon2">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SALON" msprop:Generator_RowEvHandlerName="SALONRowChangeEventHandler" msprop:Generator_RowDeletedName="SALONRowDeleted" msprop:Generator_RowDeletingName="SALONRowDeleting" msprop:Generator_RowEvArgName="SALONRowChangeEvent" msprop:Generator_TablePropName="SALON" msprop:Generator_RowChangedName="SALONRowChanged" msprop:Generator_RowChangingName="SALONRowChanging" msprop:Generator_TableClassName="SALONDataTable" msprop:Generator_RowClassName="SALONRow" msprop:Generator_TableVarName="tableSALON" msprop:Generator_UserTableName="SALON">
+        <xs:element name="SALON" msprop:Generator_RowClassName="SALONRow" msprop:Generator_RowEvHandlerName="SALONRowChangeEventHandler" msprop:Generator_RowDeletedName="SALONRowDeleted" msprop:Generator_RowDeletingName="SALONRowDeleting" msprop:Generator_RowEvArgName="SALONRowChangeEvent" msprop:Generator_TablePropName="SALON" msprop:Generator_RowChangedName="SALONRowChanged" msprop:Generator_UserTableName="SALON" msprop:Generator_RowChangingName="SALONRowChanging" msprop:Generator_TableClassName="SALONDataTable" msprop:Generator_TableVarName="tableSALON">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_SALON" msprop:Generator_ColumnPropNameInRow="ID_SALON" msprop:Generator_ColumnPropNameInTable="ID_SALONColumn" msprop:Generator_ColumnVarNameInTable="columnID_SALON" msprop:Generator_UserColumnName="ID_SALON" type="xs:int" />
-              <xs:element name="CAPACIDAD_SAL" msprop:Generator_ColumnPropNameInRow="CAPACIDAD_SAL" msprop:Generator_ColumnPropNameInTable="CAPACIDAD_SALColumn" msprop:Generator_ColumnVarNameInTable="columnCAPACIDAD_SAL" msprop:Generator_UserColumnName="CAPACIDAD_SAL" minOccurs="0">
+              <xs:element name="ID_SALON" msprop:Generator_UserColumnName="ID_SALON" msprop:Generator_ColumnPropNameInTable="ID_SALONColumn" msprop:Generator_ColumnPropNameInRow="ID_SALON" msprop:Generator_ColumnVarNameInTable="columnID_SALON" type="xs:int" />
+              <xs:element name="CAPACIDAD_SAL" msprop:Generator_UserColumnName="CAPACIDAD_SAL" msprop:Generator_ColumnPropNameInTable="CAPACIDAD_SALColumn" msprop:Generator_ColumnPropNameInRow="CAPACIDAD_SAL" msprop:Generator_ColumnVarNameInTable="columnCAPACIDAD_SAL" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DESCRIPCION_SAL" msprop:Generator_ColumnPropNameInRow="DESCRIPCION_SAL" msprop:Generator_ColumnPropNameInTable="DESCRIPCION_SALColumn" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION_SAL" msprop:Generator_UserColumnName="DESCRIPCION_SAL" minOccurs="0">
+              <xs:element name="DESCRIPCION_SAL" msprop:Generator_UserColumnName="DESCRIPCION_SAL" msprop:Generator_ColumnPropNameInTable="DESCRIPCION_SALColumn" msprop:Generator_ColumnPropNameInRow="DESCRIPCION_SAL" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION_SAL" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="300" />
