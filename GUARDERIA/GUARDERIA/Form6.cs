@@ -143,10 +143,6 @@ namespace GUARDERIA
             conexion.Close();
         }
 
-        private void btnReporte_Click(object sender, EventArgs e)
-        {
-            Form13 F=new Form13();
-            F.Show();
-        }
+
     }
 }

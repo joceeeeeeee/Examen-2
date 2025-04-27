@@ -58,7 +58,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.DataView = new System.Windows.Forms.DataGridView();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
-            this.btnReporte = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataView)).BeginInit();
             this.SuspendLayout();
@@ -333,16 +332,6 @@
             this.DataView.Size = new System.Drawing.Size(1371, 150);
             this.DataView.TabIndex = 95;
             // 
-            // btnReporte
-            // 
-            this.btnReporte.BackgroundImage = global::GUARDERIA.Properties.Resources.images;
-            this.btnReporte.Location = new System.Drawing.Point(847, 94);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(64, 59);
-            this.btnReporte.TabIndex = 102;
-            this.btnReporte.UseVisualStyleBackColor = true;
-            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
@@ -359,7 +348,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GUARDERIA.Properties.Resources.fondoliso;
             this.ClientSize = new System.Drawing.Size(1408, 710);
-            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.DataView);
             this.Controls.Add(this.btnmenu);
             this.Controls.Add(this.btneliminar);
@@ -431,7 +419,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView DataView;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
-        private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.Button button1;
     }
 }
