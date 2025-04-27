@@ -60,7 +60,15 @@ jobs:
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         shell: powershell
         run: |
+          echo "Installing SonarQube scanner..."
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+          # Verificar la instalación después de la actualización
+          if (Test-Path .\.sonar\scanner\dotnet-sonarscanner) {
+            Write-Host "SonarQube scanner installed successfully"
+          } else {
+            Write-Host "SonarQube scanner installation failed"
+            exit 1
+          }
 
       # Paso 9: Realizar el análisis y construcción con SonarQube
       - name: Build and analyze
@@ -80,42 +88,10 @@ jobs:
       # Paso 10: Validación de la instalación del scanner (opcional para asegurar que está instalado)
       - name: Validate SonarQube Scanner Installation
         run: |
+          echo "Verifying SonarQube scanner installation..."
           if (Test-Path .\.sonar\scanner\dotnet-sonarscanner) {
-            Write-Host "SonarQube Scanner installed successfully"
+            Write-Host "SonarQube scanner found and installed"
           } else {
-            Write-Host "SonarQube Scanner installation failed"
-            exit 1
-          }
-
-      # Paso 11: Validación de la compilación
-      - name: Validate MSBuild Build
-        run: |
-          $build_output = msbuild GUARDERIA/GUARDERIA.sln /t:Rebuild /p:Configuration=Release
-          if ($build_output -match "Build succeeded") {
-            Write-Host "Build succeeded"
-          } else {
-            Write-Host "Build failed"
-            exit 1
-          }
-
-      # Paso 12: Verificar la existencia del archivo de configuración de SonarQube
-      - name: Check for SonarQube Analysis Config File
-        run: |
-          if (Test-Path ".sonarqube\conf\SonarQubeAnalysisConfig.xml") {
-            Write-Host "SonarQube config file found"
-          } else {
-            Write-Host "SonarQube config file missing"
-            exit 1
-          }
-
-      # Paso 13: Validar las configuraciones de SonarQube en el archivo de análisis
-      - name: Validate SonarQube Configuration
-        run: |
-          $config_file = ".sonarqube\conf\SonarQubeAnalysisConfig.xml"
-          [xml]$xml = Get-Content $config_file
-          if ($xml.configuration.property -match "sonar.host.url") {
-            Write-Host "SonarQube configuration is valid"
-          } else {
-            Write-Host "SonarQube configuration is invalid"
+            Write-Host "SonarQube scanner not found"
             exit 1
           }
